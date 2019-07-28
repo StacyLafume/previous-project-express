@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+
+<head>
+  <meta chastrset="utf-8">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="todolist.css">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme|Monoton&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+
+  <form>
+    <div>
+      <section>
+        <h1> TO DO LIST</h1>
+      </section>
+      <!-- input and button -->
+      <form class="" action="todos" method="post">
+      <input id="userInput" type="text" name="todo" placeholder="What will you accomplish today?">
+
+      <button id="addButton" type="button" name="button">Add To List</button>
+      </form>
+    </div>
+    <div>
+      <ul id="listItems">
+        <% for(var i=0; i<todoList.length; i++) {
+
+          let completed = ""
+
+          if(todoList[i].completed){
+            completed = "completed"
+          }
+          %>
+          <!--toggles between ture and false in the javascript and in my ejs it checks if the li has the class complted if tht is ture it adds it to the class name for the li if false it wont appear-->
+          
+          <li class="item <%= completed%>">
+            <%=  todoList[i].todo %>
+          </li>
+        <% } %>
+
+      </ul>
+    </div>
+
+    <div>
+      <p>You have <span id="counterItems"><%= todoList.length %></span> to do items on your list.</p>
+      <button type="button" name="button" id="clearButton">Clear List</button>
+      <button type="button" name="button" id="clearComplete">Clear Completed</button>
+    </div>
+
+  </form>
+
+  <script type="text/javascript" src="todolist.js"></script>
+
+
+</body>
+
+</html>
